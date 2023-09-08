@@ -81,7 +81,7 @@
             "main": "src/test.ts",
             "polyfills": [],
             "scripts": [],
-            "styles": ["styles.css"],
+            "styles": ["src/global_styles.css"],
             "tsConfig": "src/tsconfig.spec.json"
           }
         }

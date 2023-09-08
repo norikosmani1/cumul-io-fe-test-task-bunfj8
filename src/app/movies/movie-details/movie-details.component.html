@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="content">
+    <mat-card>
+      <mat-card-content>
+        <h1>{{ movie.title }}</h1>
+        <p>{{ movie.overview }}</p>
+        <p>{{ movie.release_date | date: 'MMM dd, yyyy' }}</p>
+        <mat-icon
+          class="favorite-button"
+          (click)="toggleFavorite(movie); $event.stopPropagation()"
+          >{{ isFavorite(movie.id) ? 'favorite' : 'favorite_border' }}</mat-icon
+        >
+      </mat-card-content>
+      <div class="img-content">
+        <img
+          mat-card-image
+          src="https://www.themoviedb.org/t/p/w440_and_h660_face/{{
+            movie.poster_path
+          }}"
+          alt="Movie Poster"
+        />
+        <p class="p-genres">
+          {{ getGenres() }}
+        </p>
+      </div>
+      <div class="vote-circle">
+        {{ movie.vote_average }}
+      </div>
+    </mat-card>
+  </div>
+  <div
+    class="container-background"
+    [style.background-image]="
+      'url(https://www.themoviedb.org/t/p/w440_and_h660_face/' +
+      movie.poster_path +
+      ')'
+    "
+  ></div>
+</div>

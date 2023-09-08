@@ -1,0 +1,17 @@
+mat-card {
+  margin: 20px auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.favorite-button {
+  color: #ff16f1;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.favorite-button:hover {
+  color: #333;
+}

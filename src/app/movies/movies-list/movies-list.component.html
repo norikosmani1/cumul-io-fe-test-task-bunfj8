@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="search-container">
+    <mat-form-field>
+      <input
+        type="text"
+        [formControl]="searchField"
+        autocomplete="off"
+        placeholder="Search"
+        matInput
+        (keydown.enter)="$event.preventDefault()"
+      />
+    </mat-form-field>
+  </div>
+  <div class="movie-card-container">
+    <div class="movie-card" *ngFor="let movie of movies">
+      <mat-card [routerLink]="['/movie-details', movie.id]">
+        <mat-card-header>
+          <img
+            mat-card-image
+            src="https://www.themoviedb.org/t/p/w440_and_h660_face/{{
+              movie.backdrop_path
+            }}"
+            alt="{{ movie.title }} Poster"
+          />
+          <div class="vote-circle">
+            {{ movie.vote_average }}
+          </div>
+          <mat-icon
+            (click)="toggleFavorite(movie); $event.stopPropagation()"
+            class="favorite-button"
+            >{{
+              isFavorite(movie.id) ? 'favorite' : 'favorite_border'
+            }}</mat-icon
+          >
+        </mat-card-header>
+        <mat-card-content>
+          <span class="mat-card-title">{{ movie.title }}</span>
+          <span class="mat-card-release-date">{{
+            movie.release_date | date: 'MMM dd, yyyy'
+          }}</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <mat-paginator
+    (page)="onPage($event)"
+    [length]="totalElements"
+    [pageIndex]="pageIndex"
+    [pageSize]="20"
+    [hidePageSize]="true"
+  >
+  </mat-paginator>
+</div>

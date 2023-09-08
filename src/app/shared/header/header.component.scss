@@ -1,0 +1,24 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  color: #fff;
+}
+
+.favorite-button {
+  margin-right: 100px;
+  transform: scale(2);
+}
+
+.header-logo {
+  max-width: 200px;
+  cursor: pointer;
+  margin-left: 50px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 0;
+}
